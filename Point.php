@@ -18,25 +18,7 @@ class Point {
         
         return 'Le second point est situé à '. $pointA->distanceFrom($pointB). 'px du premier point.';
     }
-    function getTop() {
-        return $this->top;
-    }
-
-    function getLeft() {
-        return $this->left;
-    }
-
-    function setTop($top) {
-        $this->top = $top;
-    }
-
-    function setLeft($left) {
-        $this->left = $left;
-    }
-
-
-    
-    }
+}
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates

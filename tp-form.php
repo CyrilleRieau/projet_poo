@@ -12,7 +12,6 @@ and open the template in the editor.
     <body>
         <?php
         include_once './Carre.php';
-        include_once './Cercle.php';
         $nouveaucarre = new Carre(40, 'red');
         $nouveaucarre->afficher();
         $nouveaucarre->afficherSuperficie();
@@ -26,14 +25,12 @@ and open the template in the editor.
         include_once './Point.php';
         $pointA = new Point(10, 5);
         $pointB = new Point(245, 75);
-        $pointC = new Point(500, 500);
         echo $pointA->afficher();
         echo $pointB->afficher();
         echo $pointA->distanceFrom($pointB);
         echo '<br/>';
         echo $pointA->afficherDistance($pointA, $pointB);
-        $cercle1 = new Cercle(75, $pointC);
-        echo $cercle1->afficher();
+        
         ?>
     </body>
 </html>
