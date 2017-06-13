@@ -10,7 +10,7 @@ echo ' '.$retweet.' retweets et '.$like. ' likes';
 */
 include_once './Cercle.php';
 include_once './Carre.php';
-$instanceTweet = new Tweet();
+/*$instanceTweet = new Tweet();
 $data = [
    ['pseudo' => 'Eduardo',
    'msg' => 'Issou',
