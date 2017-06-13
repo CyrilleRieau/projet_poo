@@ -5,8 +5,11 @@ echo $pseudo . ' a écrit : ' . $msg.' ';
 echo '<br>'.$date;
 echo ' '.$retweet.' retweets et '.$like. ' likes';
 }
+ * 
+ * Réécrire avec les différents autres appels;
 */
-include_once('Tweet.php');
+include_once './Cercle.php';
+include_once './Carre.php';
 $instanceTweet = new Tweet();
 $data = [
    ['pseudo' => 'Eduardo',
