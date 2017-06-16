@@ -58,14 +58,18 @@ class Personnage {
     }
 
     public function attaquer(Personnage $cible) {
-        $cible->vie -= $this->force - ($cible->defense / 3);
+        $degat = $this->force - $cible->defense;
+        if ($degat <= 0) {
+            $degat = 1;
+        }
+        $cible->vie -= $degat;
     }
 
     public function defense() {
-        $this->defense += $this->defense / 3;
+        $this->defense += $this->defense;
     }
 
-    public function genererHTML():string {
+    public function genererHTML(): string {
         return '<table style="border:1px solid red;">
    <tr>
        <th>Nom</th>
