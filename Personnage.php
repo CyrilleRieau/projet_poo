@@ -13,10 +13,10 @@
  */
 class Personnage {
 
-    private $vie;
-    private $force;
-    private $defense;
-    private $nom;
+    protected $vie;
+    protected $force;
+    protected $defense;
+    protected $nom;
 
     public function __construct($nom, $vie, $force, $defense) {
         $this->vie = $vie;
@@ -69,21 +69,29 @@ class Personnage {
         $this->defense += $this->defense;
     }
 
-    public function genererHTML(): string {
-        return '<table style="border:1px solid red;">
-   <tr>
-       <th>Nom</th>
-       <th>Vie</th>
-       <th>Force</th>
-       <th>Defense</th>
-   </tr>
-   <tr>
-       <td style="border:1px solid red;">' . $this->nom . '</td>
-       <td>' . $this->vie . '</td>
-       <td>' . $this->force . '</td>
-       <td>' . $this->defense . '</td>
-   </tr>
-</table>';
+    public function genererHTML():string {
+        /* return '<table style="border:1px solid red;">
+          <tr>
+          <th>Nom</th>
+          <th>Vie</th>
+          <th>Force</th>
+          <th>Defense</th>
+          </tr>
+          <tr>
+          <td style="border:1px solid red;">' . $this->nom . '</td>
+          <td>' . $this->vie . '</td>
+          <td>' . $this->force . '</td>
+          <td>' . $this->defense . '</td>
+          </tr>
+          </table>'; */
+        return '<ul>' . $this->genererStats() . '</ul>';
+    }
+
+    protected function genererStats(): string {
+        return '<li>Nom : ' . $this->nom . '</li>' .
+                '<li>Vie : ' . $this->vie . '</li>' .
+                '<li>Attaque : ' . $this->force . '</li>' .
+                '<li>Défense : ' . $this->defense . '</li>';
     }
 
 }
