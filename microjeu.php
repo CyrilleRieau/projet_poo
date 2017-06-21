@@ -27,16 +27,15 @@ and open the template in the editor.
         include_once('heritage/Roomba.php');
         include_once('heritage/Roboto.php');
         include_once('./Soigneur.php');
+        include_once ('./MaitreJeu.php');
         session_start();
 
-        if (isset($_SESSION['perso1']) && isset($_SESSION['perso2']) && isset($_SESSION['healer'])) {
+        if (isset($_SESSION['perso1']) && isset($_SESSION['perso2'])) {
             $perso1 = $_SESSION['perso1'];
             $perso2 = $_SESSION['perso2'];
-            $healer = $_SESSION['healer'];
         } else {
             $perso1 = new Personnage('Eduardo', 80, 14, 14);
-            $perso2 = new Personnage('Miguel', 75, 19, 12);
-            $healer = new Soigneur('Ramon', 35, 45, 12);
+            $perso2 = new Soigneur('Miguel', 75, 19, 12);
         }
 
         if (isset($_POST['attaque'])) {
@@ -51,12 +50,8 @@ and open the template in the editor.
         if (isset($_POST['defendre2'])) {
             $perso2->defense();
         }
-
-        if (isset($_POST['heal'])) {
-            $healer->soigner($perso1);
-        }
         if (isset($_POST['heal2'])) {
-            $healer->soigner($perso2);
+            $perso2->soigner($perso1);
         }
         //$perso1->attaquer($perso2);
         //$perso2->defense();

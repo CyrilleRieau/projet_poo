@@ -46,5 +46,13 @@ class Soigneur extends Personnage {
 //</tr>
 //</table>';
     }
+    function getPansement() {
+        return $this->pansement;
+    }
+
+    function setPansement($pansement) {
+        $this->pansement = $pansement;
+    }
+
 
 }
