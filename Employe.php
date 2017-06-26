@@ -17,11 +17,14 @@ class Employe extends Personne {
 
     private $salaire;
     private $dateArrivee;
+    private $banque;
 
-    public function __construct($nom, $prenom, $age, $region, DateTime $dateArrivee, int $salaire) {
+    public function __construct($nom, $prenom, $age, $region, DateTime $dateArrivee, int $salaire, $banque) {
         parent::__construct($nom, $prenom, $age, $region);
         $this->dateArrivee = $dateArrivee;
         $this->salaire = $salaire;
+        $this->banque=$banque;
+        
     }
     /*
     public function diff($a, $b):int{
@@ -51,4 +54,7 @@ class Employe extends Personne {
         return '<p>L\'employe gagne ' . $this->salaire . 'et est arrivé il y a ' . $this->anciennete() . ' ans.</p>';
     }
 
+    public function toucherSalaire(){
+        
+    }
 }
