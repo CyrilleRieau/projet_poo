@@ -13,11 +13,18 @@ and open the template in the editor.
         <?php
 require_once'./Employe.php';
 require_once './Entreprise.php';
+require_once'./Caisse.php';
 $entreprise = new Entreprise([$employe1 = new Employe("A", "A", 25, "Rhône-Alpes", new DateTime('2010-10-05'), 4000),
    $employe2 = new Employe("B", "B", 45, "Rhône-Alpes", new DateTime('2006-11-05'), 3000),
    $employe3 = new Employe("C", "C", 35, "Rhône-Alpes", new DateTime('2014-10-05'), 3450)], 10000);
- $entreprise->reevalutation();       
- var_dump($entreprise);
+var_dump($entreprise);
+echo '<p>'.$entreprise->getCA().'</p>';
+$employe1->toucherSalaire();
+$entreprise->reevalutation();
+$entreprise->verseSalaire();
+echo '<p>'.$employe1->getSalaire().'</p>';
+echo '<p>'.$entreprise->getBenefices().'</p>';
+
         ?>
     </body>
 </html>

@@ -17,6 +17,7 @@ class Entreprise {
 
     protected $employes;
     protected $CA;
+    protected $benefices = 0;
 
     public function __construct(array $employes, int $CA) {
         $this->employes = $employes;
@@ -32,7 +33,36 @@ class Entreprise {
     }
 
     public function verseSalaire() {
-        
+        $totalsalaires = 0;
+        foreach ($this->employes as $employe) {
+            $employe->toucherSalaire();
+            $totalsalaires += $employe->getSalaire();
+        }
+        $this->benefices = $this->CA - $totalsalaires;
+    }
+
+    function getEmployes() {
+        return $this->employes;
+    }
+
+    function getCA() {
+        return $this->CA;
+    }
+
+    function setEmployes($employes) {
+        $this->employes = $employes;
+    }
+
+    function setCA($CA) {
+        $this->CA = $CA;
+    }
+
+    function getBenefices() {
+        return $this->benefices;
+    }
+
+    function setBenefices($benefices) {
+        $this->benefices = $benefices;
     }
 
 }

@@ -13,14 +13,19 @@
  */
 include_once './Employe.php';
 class Caisse {
-    private $depot;
+    private static $depot=0;
     
-    public function __construct($depot) {
+    public function cotisation (int $salaire) {
+        self::$depot += $salaire *0.45;
+        return $salaire *0.55;
+    }
+    function getDepot() {
+        return $this->depot;
+    }
+
+    function setDepot($depot) {
         $this->depot = $depot;
     }
 
-    public function cotisation (int $salaire) {
-        $this->depot = $salaire *0.45;
-        return $salaire - $this->depot;
-    }
+
 }
